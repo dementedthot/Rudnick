@@ -7,33 +7,34 @@
   <meta name="description" content="Rudnick MFG delivers precision CNC routing, CNC machining, press brake forming, aluminum fabrication, finishing, and deburring." />
   <style>
     :root {
-      --bg: #090b0f;
-      --bg-2: #0f131a;
+      --bg: #07070b;
+      --bg-2: #101017;
       --panel: rgba(255,255,255,.055);
       --panel-strong: rgba(255,255,255,.09);
-      --text: #f5f7fb;
-      --muted: #a8b0bd;
-      --accent: #d71920;
-      --accent-2: #f05a5f;
+      --text: #f7f7fb;
+      --muted: #aeb0bc;
+      --accent: #6f35b5;
+      --accent-2: #9f68ff;
+      --accent-3: #2b0f46;
       --line: rgba(255,255,255,.12);
-      --shadow: 0 24px 80px rgba(0,0,0,.45);
-      --radius: 28px;
+      --purple-line: rgba(159,104,255,.34);
+      --shadow: 0 28px 90px rgba(0,0,0,.52);
+      --radius: 30px;
     }
 
     * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 20% 10%, rgba(215, 25, 32, .18), transparent 34%),
-        radial-gradient(circle at 80% 0%, rgba(255, 255, 255, .08), transparent 28%),
-        linear-gradient(135deg, #07080b 0%, var(--bg) 45%, #11151d 100%);
+        radial-gradient(circle at 16% 8%, rgba(111, 53, 181, .42), transparent 34%),
+        radial-gradient(circle at 82% 0%, rgba(159, 104, 255, .18), transparent 28%),
+        radial-gradient(circle at 55% 48%, rgba(255,255,255,.045), transparent 32%),
+        linear-gradient(135deg, #050507 0%, var(--bg) 46%, #111018 100%);
       overflow-x: hidden;
     }
 
@@ -43,19 +44,26 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.032) 1px, transparent 1px);
       background-size: 64px 64px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), transparent 80%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 84%);
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.025), transparent);
+      mix-blend-mode: screen;
       z-index: 0;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    .site-shell {
-      position: relative;
-      z-index: 1;
-    }
+    .site-shell { position: relative; z-index: 1; }
 
     .nav {
       position: fixed;
@@ -66,30 +74,40 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px clamp(18px, 5vw, 72px);
-      background: rgba(9, 11, 15, .65);
+      padding: 14px clamp(18px, 5vw, 72px);
+      background: rgba(7, 7, 11, .72);
       border-bottom: 1px solid rgba(255,255,255,.08);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       font-weight: 900;
       letter-spacing: .08em;
       text-transform: uppercase;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--accent), #6c0f13);
-      box-shadow: 0 0 28px rgba(215,25,32,.4);
-      font-weight: 950;
+      width: 78px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 8px;
+      background: rgba(255,255,255,.96);
+      border: 1px solid rgba(159,104,255,.38);
+      box-shadow: 0 0 34px rgba(111,53,181,.34);
+      overflow: hidden;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .nav-links {
@@ -105,12 +123,12 @@
 
     .quote-btn, .btn {
       border: 1px solid rgba(255,255,255,.16);
-      background: linear-gradient(135deg, var(--accent), #991218);
+      background: linear-gradient(135deg, var(--accent), #3f1b70);
       color: white;
       padding: 12px 18px;
       border-radius: 999px;
-      font-weight: 800;
-      box-shadow: 0 14px 34px rgba(215, 25, 32, .24);
+      font-weight: 850;
+      box-shadow: 0 14px 34px rgba(111, 53, 181, .34);
       transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
       display: inline-flex;
       align-items: center;
@@ -120,7 +138,7 @@
 
     .quote-btn:hover, .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 20px 48px rgba(215, 25, 32, .32);
+      box-shadow: 0 22px 54px rgba(159, 104, 255, .30);
       border-color: rgba(255,255,255,.34);
     }
 
@@ -138,22 +156,34 @@
       min-height: 100vh;
       display: grid;
       align-items: center;
-      padding-top: 120px;
+      padding-top: 126px;
       position: relative;
       overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7,7,11,.90), rgba(7,7,11,.55), rgba(7,7,11,.85)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 1px, transparent 1px 70px),
+        radial-gradient(circle at 74% 34%, rgba(159,104,255,.26), transparent 34%);
+      z-index: -2;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      right: -120px;
+      right: -130px;
       bottom: 4%;
-      width: min(54vw, 720px);
-      height: min(54vw, 720px);
+      width: min(58vw, 780px);
+      height: min(58vw, 780px);
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(215,25,32,.18), transparent 68%);
-      filter: blur(6px);
+      background: radial-gradient(circle, rgba(111,53,181,.30), transparent 68%);
+      filter: blur(8px);
       animation: pulse 7s ease-in-out infinite alternate;
+      z-index: -1;
     }
 
     @keyframes pulse {
@@ -171,13 +201,29 @@
       width: 100%;
     }
 
+    .hero-logo {
+      width: min(360px, 72vw);
+      margin-bottom: 26px;
+      padding: 18px 22px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.96);
+      border: 1px solid rgba(159,104,255,.42);
+      box-shadow: 0 22px 70px rgba(111,53,181,.30);
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       color: #fff;
-      background: rgba(215,25,32,.12);
-      border: 1px solid rgba(215,25,32,.34);
+      background: rgba(111,53,181,.17);
+      border: 1px solid rgba(159,104,255,.38);
       border-radius: 999px;
       padding: 9px 14px;
       font-size: 13px;
@@ -189,9 +235,9 @@
     .dot {
       width: 8px;
       height: 8px;
-      background: var(--accent);
+      background: var(--accent-2);
       border-radius: 99px;
-      box-shadow: 0 0 18px rgba(215,25,32,.85);
+      box-shadow: 0 0 18px rgba(159,104,255,.85);
     }
 
     h1 {
@@ -235,6 +281,7 @@
     .stat strong {
       display: block;
       font-size: 26px;
+      color: white;
     }
 
     .stat span {
@@ -247,8 +294,9 @@
       border: 1px solid rgba(255,255,255,.14);
       border-radius: var(--radius);
       background:
-        linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.025)),
-        radial-gradient(circle at 20% 20%, rgba(215,25,32,.22), transparent 38%);
+        linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.025)),
+        radial-gradient(circle at 20% 20%, rgba(159,104,255,.32), transparent 38%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.045) 0 2px, transparent 2px 18px);
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
@@ -267,6 +315,25 @@
       transform: translateZ(50px);
     }
 
+    .machine-card .machine-logo {
+      position: absolute;
+      top: 48px;
+      left: 42px;
+      right: 42px;
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.95);
+      border: 1px solid rgba(159,104,255,.42);
+      box-shadow: 0 26px 70px rgba(0,0,0,.38);
+      transform: translateZ(76px);
+    }
+
+    .machine-card .machine-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .machine-card::after {
       content: "CNC • ROUTING • MILLING • FORMING";
       position: absolute;
@@ -276,9 +343,9 @@
       padding: 24px;
       border-radius: 20px;
       border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.36);
+      background: rgba(0,0,0,.44);
       backdrop-filter: blur(14px);
-      color: rgba(255,255,255,.86);
+      color: rgba(255,255,255,.88);
       font-weight: 900;
       letter-spacing: .12em;
     }
@@ -319,7 +386,7 @@
       border: 1px solid var(--line);
       border-radius: 26px;
       padding: 28px;
-      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.028));
+      background: linear-gradient(145deg, rgba(255,255,255,.078), rgba(255,255,255,.028));
       box-shadow: 0 20px 60px rgba(0,0,0,.25);
       min-height: 210px;
       transition: transform .3s ease, border-color .3s ease, background .3s ease;
@@ -327,8 +394,8 @@
 
     .card:hover {
       transform: translateY(-8px) rotateX(2deg);
-      border-color: rgba(215,25,32,.45);
-      background: linear-gradient(145deg, rgba(255,255,255,.105), rgba(255,255,255,.035));
+      border-color: rgba(159,104,255,.55);
+      background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.035));
     }
 
     .icon {
@@ -338,8 +405,8 @@
       display: grid;
       place-items: center;
       margin-bottom: 22px;
-      background: rgba(215,25,32,.16);
-      border: 1px solid rgba(215,25,32,.35);
+      background: rgba(111,53,181,.22);
+      border: 1px solid rgba(159,104,255,.42);
       color: white;
       font-weight: 950;
     }
@@ -363,7 +430,7 @@
     .service-media {
       height: 170px;
       background:
-        radial-gradient(circle at 30% 25%, rgba(215,25,32,.32), transparent 35%),
+        radial-gradient(circle at 30% 25%, rgba(159,104,255,.35), transparent 35%),
         linear-gradient(135deg, rgba(255,255,255,.11), rgba(255,255,255,.02)),
         repeating-linear-gradient(45deg, rgba(255,255,255,.06) 0 2px, transparent 2px 18px);
       border-bottom: 1px solid var(--line);
@@ -394,6 +461,8 @@
       font-weight: 750;
     }
 
+    .cap:hover { border-color: var(--purple-line); }
+
     .about-panel {
       max-width: 1180px;
       margin: 0 auto;
@@ -401,7 +470,7 @@
       border-radius: 34px;
       background:
         linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.026)),
-        radial-gradient(circle at 90% 10%, rgba(215,25,32,.14), transparent 35%);
+        radial-gradient(circle at 90% 10%, rgba(159,104,255,.18), transparent 35%);
       padding: clamp(30px, 5vw, 70px);
       display: grid;
       grid-template-columns: .9fr 1.1fr;
@@ -417,7 +486,7 @@
       background:
         linear-gradient(150deg, rgba(255,255,255,.12), transparent),
         repeating-linear-gradient(0deg, rgba(255,255,255,.055) 0 1px, transparent 1px 24px),
-        radial-gradient(circle at center, rgba(215,25,32,.22), transparent 50%);
+        radial-gradient(circle at center, rgba(159,104,255,.25), transparent 50%);
       position: relative;
       overflow: hidden;
     }
@@ -461,14 +530,17 @@
       border-radius: 24px;
       border: 1px solid var(--line);
       background:
-        radial-gradient(circle at 30% 30%, rgba(215,25,32,.2), transparent 36%),
+        radial-gradient(circle at 30% 30%, rgba(159,104,255,.22), transparent 36%),
         linear-gradient(135deg, rgba(255,255,255,.1), rgba(255,255,255,.025));
       overflow: hidden;
       position: relative;
-      transition: transform .3s ease;
+      transition: transform .3s ease, border-color .3s ease;
     }
 
-    .tile:hover { transform: scale(1.025); }
+    .tile:hover {
+      transform: scale(1.025);
+      border-color: var(--purple-line);
+    }
 
     .tile:nth-child(1) { grid-row: span 2; }
     .tile:nth-child(4) { grid-column: span 2; }
@@ -533,7 +605,7 @@
 
     textarea { min-height: 150px; resize: vertical; }
 
-    input:focus, textarea:focus { border-color: rgba(215,25,32,.65); }
+    input:focus, textarea:focus { border-color: rgba(159,104,255,.72); }
 
     footer {
       border-top: 1px solid rgba(255,255,255,.08);
@@ -571,8 +643,10 @@
       .cards-4, .cards-3, .cards-2, .cap-list, .field-grid, .gallery { grid-template-columns: 1fr; }
       .stats { grid-template-columns: 1fr; }
       .brand span { display: none; }
+      .brand-mark { width: 64px; height: 44px; }
       section { padding-left: 16px; padding-right: 16px; }
       h1 { font-size: 50px; }
+      .machine-card .machine-logo { left: 24px; right: 24px; top: 40px; }
     }
   </style>
 </head>
@@ -580,7 +654,7 @@
   <div class="site-shell">
     <nav class="nav">
       <a href="#home" class="brand" aria-label="Rudnick MFG Home">
-        <div class="brand-mark">R</div>
+        <div class="brand-mark"><img src="logo.svg" alt="Rudnick MFG logo" /></div>
         <span>Rudnick MFG</span>
       </a>
       <div class="nav-links">
@@ -596,6 +670,7 @@
       <section id="home" class="hero">
         <div class="hero-grid">
           <div class="reveal">
+            <div class="hero-logo"><img src="logo.svg" alt="Rudnick MFG logo" /></div>
             <div class="eyebrow"><span class="dot"></span> Precision CNC Manufacturing</div>
             <h1>Precision Manufacturing Built on Quality.</h1>
             <p class="lead">Rudnick MFG delivers CNC routing, CNC machining, press brake forming, aluminum fabrication, and finished parts with the craftsmanship of a family-owned shop and the discipline of modern manufacturing.</p>
@@ -609,7 +684,9 @@
               <div class="stat"><strong>1</strong><span>Precision Press Brake</span></div>
             </div>
           </div>
-          <div class="machine-card reveal" aria-label="Industrial CNC visual placeholder"></div>
+          <div class="machine-card reveal" aria-label="Industrial CNC visual placeholder">
+            <div class="machine-logo"><img src="logo.svg" alt="Rudnick MFG logo" /></div>
+          </div>
         </div>
       </section>
 
@@ -649,7 +726,7 @@
           <div class="cap">Two Haas CNC Mills</div>
           <div class="cap">Precision Press Brake</div>
           <div class="cap">Aluminum Fabrication</div>
-          <div class="cap">Deburring & Finishing</div>
+          <div class="cap">Deburring &amp; Finishing</div>
           <div class="cap">Prototype Production</div>
           <div class="cap">Small Batch Manufacturing</div>
           <div class="cap">Production Runs</div>
